@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #FFFFFF;
+    color: #111513;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .headline-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ============================================================================
+   KEYFRAMES
+   ============================================================================ */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================================================
+   SCROLL-TRIGGERED REVEALS
+   Applied directly to existing elements, so no extra DOM is introduced.
+   Pair with the `is-visible` class once the element enters the viewport.
+   ============================================================================ */
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal { transform: translateY(28px); }
+.reveal-left { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal-scale { transform: scale(0.97); }
+
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slightly snappier reveal for small elements such as icons and chips */
+.reveal-fast {
+  transition-duration: 0.45s;
+}
+
+/* ============================================================================
+   LOAD-IN ANIMATIONS (no scroll trigger required)
+   ============================================================================ */
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.5s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+.delay-5 { animation-delay: 0.4s; }
+.delay-6 { animation-delay: 0.48s; }
+
+/* ============================================================================
+   HOVER / INTERACTION ENHANCEMENTS
+   ============================================================================ */
+
+.hover-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 32px -18px rgba(17, 22, 19, 0.28),
+    0 4px 10px -6px rgba(17, 22, 19, 0.12);
+}
+
+/* Slow, subtle image zoom on card hover */
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img,
+.hover-zoom video {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom:hover img,
+.hover-zoom:hover video {
+  transform: scale(1.05);
+}
+
+/* Press feedback for buttons and clickable cards */
+.pressable {
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.pressable:active {
+  transform: scale(0.975);
+}
+
+/* Arrow nudge on link hover */
+.arrow-nudge svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrow-nudge:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================================
+   PAGE TRANSITION
+   ============================================================================ */
+
+.page-fade {
+  animation: fade-in 0.35s ease-out both;
+}
+
+/* Sticky header settle-in */
+.header-settle {
+  animation: fade-in-down 0.45s ease-out both;
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Subtle natural architectural stone texture for alternating corporate bands */
+.surface-stone {
+  background-color: #F5F7F5;
+}
+
+.surface-charcoal {
+  background-color: #111613;
+}
