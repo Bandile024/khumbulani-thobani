@@ -24,7 +24,7 @@ dotenv.config({ path: path.join(__dirname, '.env.local') });
 dotenv.config();
 
 const PORT = Number(process.env.PORT) || 3001;
-const CONTACT_EMAIL = 'Mzansiplannersconnect@gmail.com';
+const CONTACT_EMAIL = 'mzansiplannersconnect@gmail.com';
 const RESEND_FROM =
   process.env.RESEND_FROM || 'Mzansi Planners Connect <onboarding@resend.dev>';
 
