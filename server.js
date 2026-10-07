@@ -25,9 +25,8 @@ dotenv.config();
 
 const PORT = Number(process.env.PORT) || 3001;
 const CONTACT_EMAIL =
-  process.env.RESEND_TO || 'Mzansiplannersconnect@gmail.com';
-const RESEND_FROM =
-  process.env.RESEND_FROM || 'Mzansi Planners Connect <onboarding@resend.dev>';
+  process.env.CONTACT_TO_EMAIL || 'Mzansiplannersconnect@gmail.com';
+const RESEND_FROM = 'Mzansi Planners Connect <onboarding@resend.dev>';
 
 const ALLOWED_AREAS = new Set([
   'Pretoria (City of Tshwane)',

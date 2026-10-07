@@ -26,24 +26,18 @@ exposed to the browser.
 
    ```
    RESEND_API_KEY="re_..."
-   RESEND_TO="mzansiplannersconnect@gmail.com"
-   RESEND_FROM="Mzansi Planners Connect <onboarding@resend.dev>"
+   CONTACT_TO_EMAIL="mzansiplannersconnect@gmail.com"
    ```
 
 3. Start both processes with `npm run dev`, which runs the API server and the
    Vite dev server together. The dev server proxies `/api` to port 3001.
 
 Enquiries are delivered to **Mzansiplannersconnect@gmail.com**.
-Set `RESEND_TO` to change the destination inbox. With Resend's default
-`onboarding@resend.dev` sender, the destination must be the email address
-associated with the Resend account. For other destinations, verify a domain
-and use a sender address on that domain.
-
-Notes on the sender address: `onboarding@resend.dev` works immediately but can
-only deliver to the email address on the Resend account. Once a domain is
-verified in Resend, set `RESEND_FROM` to that domain (for example
-`Mzansi Planners Connect <enquiries@yourdomain.co.za>`) so mail can be sent to
-any address.
+Set `CONTACT_TO_EMAIL` to change the destination inbox. The server uses
+Resend's `onboarding@resend.dev` test sender, which can only deliver to the
+email address associated with the Resend account. To send to a different
+recipient, verify a domain in Resend and configure a sender address on that
+domain in `server.js`.
 
 For production, run `npm run build` and then `npm start` — the server serves
 `dist/` and the API from a single port.
