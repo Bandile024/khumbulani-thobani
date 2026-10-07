@@ -498,13 +498,6 @@ export const ContactPage: React.FC = () => {
                         <Mail className="w-4 h-4 text-[#14532D]" />
                         Send via Email ({PLANNER_PROFILE.email})
                       </a>
-                      <button
-                        type="button"
-                        onClick={() => setStatus('idle')}
-                        className="px-4 py-3 text-xs font-medium text-[#46524B] hover:text-[#111613] cursor-pointer"
-                      >
-                        Edit Details
-                      </button>
                     </div>
                   </div>
                 )}
