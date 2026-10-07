@@ -26,6 +26,7 @@ exposed to the browser.
 
    ```
    RESEND_API_KEY="re_..."
+   RESEND_TO="mzansiplannersconnect@gmail.com"
    RESEND_FROM="Mzansi Planners Connect <onboarding@resend.dev>"
    ```
 
@@ -33,6 +34,10 @@ exposed to the browser.
    Vite dev server together. The dev server proxies `/api` to port 3001.
 
 Enquiries are delivered to **Mzansiplannersconnect@gmail.com**.
+Set `RESEND_TO` to change the destination inbox. With Resend's default
+`onboarding@resend.dev` sender, the destination must be the email address
+associated with the Resend account. For other destinations, verify a domain
+and use a sender address on that domain.
 
 Notes on the sender address: `onboarding@resend.dev` works immediately but can
 only deliver to the email address on the Resend account. Once a domain is
