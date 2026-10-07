@@ -41,3 +41,8 @@ domain in `server.js`.
 
 For production, run `npm run build` and then `npm start` — the server serves
 `dist/` and the API from a single port.
+
+For Vercel, `vercel.json` sets the Vite build output to `dist/` and rewrites
+deep links to the SPA entry point. The `api/contact.js` function exports the
+same Express contact handler used locally. Set `RESEND_API_KEY` and
+`CONTACT_TO_EMAIL` in Vercel's server-side environment variables, then redeploy.

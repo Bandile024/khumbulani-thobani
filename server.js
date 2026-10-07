@@ -273,9 +273,13 @@ if (fs.existsSync(distDir)) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`[server] listening on http://localhost:${PORT}`);
-  if (!process.env.RESEND_API_KEY) {
-    console.warn('[server] RESEND_API_KEY is missing — /api/contact will return 503.');
-  }
-});
+export default app;
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[server] listening on http://localhost:${PORT}`);
+    if (!process.env.RESEND_API_KEY) {
+      console.warn('[server] RESEND_API_KEY is missing — /api/contact will return 503.');
+    }
+  });
+}
